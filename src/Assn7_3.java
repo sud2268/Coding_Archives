@@ -11,9 +11,7 @@ reverse of str1 or not and returns a Boolean value. Print the value returned.
 import java.util.*;
 public class Assn7_3 {
 
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner ob=new Scanner(System.in);
@@ -25,7 +23,7 @@ public class Assn7_3 {
 	public static boolean reverse(String str1,String str2,int index) {
 		//if(str1.length()!=str2.length())
 		//	return false;
-		// problem in returning**************
+		
 		if(index==str1.length()) { 
 			//System.out.println("true");
 			return true;

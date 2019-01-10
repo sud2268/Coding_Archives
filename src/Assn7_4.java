@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/*Take as input str, a string. Write a function which tests if the string is a palindrome
+or not and returns a Boolean value. Print the value returned.
+*/
 public class Assn7_4 {
 
 	public static void main(String[] args) {

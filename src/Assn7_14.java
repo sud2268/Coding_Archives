@@ -1,4 +1,7 @@
 import java.util.Scanner;
+/*Take as input str, a string. The string contains a single pair of parenthesis “(..)”.
+Write a recursive function which returns the contents between the parenthesis.
+E.g. for “xyz(abc)def” return “abc”. Print the value returned.*/
 
 public class Assn7_14 {
 

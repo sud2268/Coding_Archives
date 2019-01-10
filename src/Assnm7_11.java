@@ -1,4 +1,11 @@
 import java.util.*;
+/*Take as input str, a string 
+a. Write a recursive function which counts, the number of times “aaa”
+appears in the string. Print the value returned.
+b. Write a recursive function which counts, the number of times “aaa”
+appears in the string, but only such instances of “aaa” should be
+considered which do not overlap. Print the value returned.*/
+
 public class Assnm7_11 {
 
 	public static void main(String[] args) {
