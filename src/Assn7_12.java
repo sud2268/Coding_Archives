@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //VERY IMPORTANT
@@ -15,26 +16,61 @@ public class Assn7_12 {
 //		int x=Integer.parseInt(s.substring(0));
 //		char c=(char)(x-1+'a');
 //		System.out.println(c);
-		codes("", s);
+		
+		ArrayList<String > list=new ArrayList<>();
+		list=codes("", s);
+		for (int i = 0; i < list.size(); i++) {
+			if(i==0) {
+				System.out.print("["+list.get(i)+", ");
+			}
+			else if(i==list.size()-1) {
+				System.out.print(list.get(i)+"]");
+			}
+			else
+				System.out.print(list.get(i)+", ");
+		}
 	}
 	
-	public static void codes(String processed ,String unprocessed) {
+//	public static void codes(String processed ,String unprocessed) {
+//		if(unprocessed.isEmpty()) {
+//			System.out.println(processed);
+//			return;
+//		}
+//		
+//		if(unprocessed.length()>=2) {
+//			int num=Integer.parseInt(unprocessed.substring(0, 2));
+//			//int num2=Integer.parseInt(unprocessed.substring(0, 1));
+//			if(num<=26)
+//			codes(processed+(char)(num-1+'a'), unprocessed.substring(2));
+//			//codes(processed+(char)(num2-1+'a'), unprocessed.substring(1));
+//		}
+//		
+//			int num2=Integer.parseInt(unprocessed.substring(0, 1));
+//			codes(processed+(char)(num2-1+'a'), unprocessed.substring(1));
+//
+//		
+//	}
+	
+	public static ArrayList<String> codes(String processed ,String unprocessed) {
 		if(unprocessed.isEmpty()) {
-			System.out.println(processed);
-			return;
+			//System.out.println(processed);
+			ArrayList<String> list=new ArrayList<>();
+			list.add(processed);
+			return list;
 		}
 		
+		ArrayList<String> list =new ArrayList<>();
 		if(unprocessed.length()>=2) {
 			int num=Integer.parseInt(unprocessed.substring(0, 2));
 			//int num2=Integer.parseInt(unprocessed.substring(0, 1));
 			if(num<=26)
-			codes(processed+(char)(num-1+'a'), unprocessed.substring(2));
+			list.addAll(codes(processed+(char)(num-1+'a'), unprocessed.substring(2)));
 			//codes(processed+(char)(num2-1+'a'), unprocessed.substring(1));
 		}
 		
 			int num2=Integer.parseInt(unprocessed.substring(0, 1));
-			codes(processed+(char)(num2-1+'a'), unprocessed.substring(1));
-
+			list.addAll(codes(processed+(char)(num2-1+'a'), unprocessed.substring(1)));
+			return list;
 		
 	}
 
