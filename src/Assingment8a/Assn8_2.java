@@ -9,9 +9,12 @@ public class Assn8_2 {
 		Scanner ob=new Scanner(System.in);
 		String a=ob.next();
 		ArrayList<String> x=new ArrayList<String>();
+		x.add("");
 		ascii("", a, x);
+		//int z=countascii("", a, x, 0);
+		System.out.println(x.size());
 		for (int i = 0; i < x.size(); i++) {
-			System.out.println(x.get(i));
+			System.out.print(x.get(i)+" ");
 		}
 	}
 	public static void ascii(String processed ,String unprocessed,ArrayList<String> list) {
@@ -34,5 +37,28 @@ public class Assn8_2 {
 		
 	}
 	
-
+/*	public static int countascii(String processed ,String unprocessed,ArrayList<String> list,int count) {
+		if(unprocessed.isEmpty()) {
+			if(!processed.isEmpty()) {
+				list.add(processed);
+			}
+			return ++count;
+		}
+		
+		char ch=unprocessed.charAt(0);
+		unprocessed=unprocessed.substring(1);
+		int i=(int )ch;
+		
+		count=countascii(processed, unprocessed, list,count);
+		
+		count=countascii(processed+ch, unprocessed, list,count);
+		
+		count=countascii(processed+i, unprocessed, list,count);
+		
+		return count;
+		
+		
+	}
+*/
 }
+			

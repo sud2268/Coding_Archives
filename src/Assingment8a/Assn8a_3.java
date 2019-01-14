@@ -1,4 +1,14 @@
 package Assingment8a;
+/*Take as input str, a string. str represents keys pressed on a nokia phone keypad.
+We are concerned with all possible words that can be written with the pressed
+keys. E.g. “12” can produce following words “ad”, “ae”, “af”, “bd”, “be”, “bf”,
+“cd”, “ce”, “cf”
+a. Write a recursive function which returns the count of words for a given
+keypad string. Print the value returned.
+b. Write a recursive function which returns an ArrayList of words for a given
+keypad string. Print the value returned.
+c. Write a recursive function which prints all possible words for a given
+keypad string (void is the return type for function).*/
 
 import java.util.*;
 
