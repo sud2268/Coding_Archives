@@ -1,4 +1,4 @@
-package RecursionPractise;
+	package RecursionPractise;
 
 import java.util.ArrayList;
 //To traverse on maze from initial position to food

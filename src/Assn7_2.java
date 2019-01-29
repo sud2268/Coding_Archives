@@ -12,9 +12,10 @@ public class Assn7_2 {
 		
 	}
 	public static int toInteger(String s) {
-		if(s.length()==0)
-			return 0 ;
+		if(s.length()==1)
+			return s.charAt(0)-'0' ;
 		int x=s.charAt(0)-'0';
-		return x+toInteger(s.substring(1));
+		int sum =x*10+toInteger(s.substring(1));
+		return sum;
 	}
 }

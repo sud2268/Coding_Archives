@@ -1,7 +1,7 @@
 package HackerBlocksProblems;
 
 import java.util.*;
-public class fibonacci {
+public class Fibonacci {
     public static void main(String args[]) {
         // Your Code Here
         Scanner ob=new Scanner(System.in);

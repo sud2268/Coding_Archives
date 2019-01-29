@@ -11,7 +11,9 @@ public class NQueen {
 //				board[i][j]=false;
 //			}
 //		}
-		System.out.println(countNQueen(board, 0));
+//	System.out.println(countNQueen(board, 0));
+		
+		printNQueen(board, 0, "");
 	} 
 	public static int countNQueen(boolean[][]board,int row) {
 		if(row==board.length)
@@ -50,4 +52,24 @@ public class NQueen {
 		return true;
 				
 	}
+	
+	public static void printNQueen(boolean[][]board,int row,String result) {
+		if(row==board.length) {
+			System.out.println(result);
+			return;
+		}
+			
+		
+		
+		for (int col = 0; col <board[row].length ; col++) {
+			if(isSafe(board,row,col)) {
+				board[row][col]=true;
+				printNQueen(board, row+1,result+"{"+(row+1)+","+(col+1)+"};");
+				board[row][col]=false;
+			}
+		}
+		
+	}
+	
+	
 }
