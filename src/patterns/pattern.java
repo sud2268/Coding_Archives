@@ -5,16 +5,28 @@ public class pattern {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner ob=new Scanner(System.in);
-		int n=ob.nextInt();
+	//	int n=ob.nextInt();
+
 
 		//		pattern1(n);
 		//		pattern2(n);
 		//		pattern3(n);
 		//		pattern4(n);
-		//	hollowRhombus(n);
+		//	    hollowRhombus(n);
 		//		rhombus(n);
 		//		valley(n);
-		pattern5(n);
+		//      pattern5(n);
+		//  	hourglass(n);
+		int m=ob.nextInt();
+		int n1=ob.nextInt();
+		int [][]ar=new int[m][n1];
+		for (int i = 0; i < ar.length; i++) {
+			for (int j = 0; j < ar.length; j++) {
+				ar[i][j]=ob.nextInt();
+			}
+		}
+		//wavePattern(ar);
+		spiralPattern(ar);
 	}
 	public static void pattern1(int n) {
 		int row=1;
@@ -242,12 +254,12 @@ public class pattern {
 		}
 
 	}
-//
-//    * * * * *
-//    * *   * *
-//    *       *
-//    * *   * *
-//    * * * * *
+	//
+	//    * * * * *
+	//    * *   * *
+	//    *       *
+	//    * *   * *
+	//    * * * * *
 
 	public static void holow(int n){
 		int row=1,nst=n/2+1,nsp=-1;
@@ -284,17 +296,17 @@ public class pattern {
 			row++;
 		}
 	}
-	
-	
-/*	3
+
+
+	/*	3
 	 	1	
 	2	3	2	
 3	4	5	4	3	
-*/
+	 */
 
 	public static void pattern5(int n) {
 		int row=1,nst=1,nsp=n-1,count=1;
-		
+
 		while(row<=n) {
 			int cst=1,csp=1;
 			count=row;
@@ -302,24 +314,141 @@ public class pattern {
 				System.out.print(" \t");
 				csp++;
 			}
-			
+
 			while(cst<=nst) {				
 				System.out.print(count+"\t");
 				if(cst<=nst/2)
 					count++;
 				else
 					count--;
-				
+
 				cst++;
 			}
 			System.out.println();
 			nst+=2;		
 			nsp--;
 			row++;
-			
+
 		}
 	}
+	//	
+	//	5
+	//	5 4 3 2 1 0 1 2 3 4 5 
+	//	  4 3 2 1 0 1 2 3 4 
+	//	    3 2 1 0 1 2 3 
+	//	      2 1 0 1 2 
+	//	        1 0 1 
+	//	          0 
+	//	        1 0 1 
+	//	      2 1 0 1 2 
+	//	    3 2 1 0 1 2 3 
+	//	  4 3 2 1 0 1 2 3 4 
+	//	5 4 3 2 1 0 1 2 3 4 5 
 
 
+	
+	public static void hourglass(int n) {
+		int nr=2*n+1, nst=2*n+1,nsp=0,val=n;
+		int row=1;
+		while(row<=nr) {
+			val=nst/2;
+			for (int csp = 1;csp <= nsp; csp++) {
+				System.out.print("  ");
+			}
+			for (int cst = 1;cst <= nst; cst++) {
+				System.out.print(val+" ");
+				if(cst<=nst/2) {
+					val--;
+				}
+				else {
+					val++;
+				}
+			}
 
+
+			//prep
+			System.out.println();
+			if(row<=nr/2) {
+				nst-=2;
+				nsp++;
+			}
+			else {
+				nst+=2;
+				nsp--;
+			}
+			row++;
+
+		}
+	}
+//print matrix in wave format
+	
+	public static void wavePattern(int [][]ar) {
+			
+		
+		for (int i = 0; i < ar.length; i++) {
+			if(i%2==0) {
+				for (int j = 0; j < ar[i].length; j++) {
+					System.out.println(ar[i][j]);
+				}
+			}
+			else {
+				for (int j = ar[i].length-1; j >=0 ; j--) {
+					System.out.println(ar[i][j]);
+				}
+			}
+		}
+	}
+	
+	
+	
+	public static void spiralPattern(int a[][]) {
+		
+		int top=0,bottom=a.length-1,left=0,right=a.length-1,count=(bottom+1)*(right+1),direction=1;
+		while(left<=right&&top<=bottom) {
+			if(count >0) {
+				if(direction==1) {
+					for (int i = left; i <= right; i++) {
+						System.out.print(a[top][i]+", ");
+						count--;
+					}
+					top++;
+					direction=2;
+					
+				}
+				if(direction==2) {
+					for (int i = top; i <= bottom; i++) {
+						System.out.print(a[i][right]+", ");
+						count--;
+					}
+					right--;
+					direction=3;
+
+					
+				}
+				if(direction==3) {
+					for (int i = right; i >=left; i--) {
+						System.out.print(a[bottom][i]+", ");
+						count--;
+					}
+					bottom--;
+					direction=4;
+
+				}
+				if(direction==4) {
+					for (int i = bottom; i >=top ; i--) {
+						System.out.print(a[i][left]+", ");
+						count--;
+					}
+					left++;
+					direction=1;
+
+				}
+				
+			}
+		}
+		System.out.print("END");
+		
 }
+}
+
+

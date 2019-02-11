@@ -57,5 +57,25 @@ public class Sum {
         int lcm=(m*n)/divisor;
         System.out.println(lcm);
     }
+
+
+//Given a binary number ,help Von Neuman to find out its decimal representation.
+    //For eg 000111 in binary is 7 in decimal.
+    
+	public static void convert(int n){
+	int sum=0,temp=n,count=0;
+	while(temp>0){
+	    count++;
+	    temp/=10;
+	}
+    for(int i=0;i<count;i++){
+        int d=n%10;
+        sum=(int)(sum+d*Math.pow(2,i));
+        
+        n/=10;
+        
+    }
+    System.out.println(sum);
+    }
     
 }
