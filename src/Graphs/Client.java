@@ -20,9 +20,12 @@ public class Client {
 		graph.addEdge("c", "d", 5);
 		graph.addEdge("d", "e", 6);
 		System.out.println(graph.containsKey("c"));
+		System.out.println(graph.countVertex());
+		System.out.println(graph.numEdges());
 		System.out.println(graph.containsEdge("a", "b"));
 		System.out.println();
 		graph.display();
+		graph.removeEdge("b", "c");
 		System.out.println("....................");
 		graph.removeVertex("f");
 		graph.display();

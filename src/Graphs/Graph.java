@@ -35,13 +35,15 @@ public class Graph {
 	}
 	
 	//count number of edges
-	public void numEdges() {
+	public int numEdges() {
 		
-		ArrayList<Vertex> keys=new ArrayList<>();
+		ArrayList<String> keys=new ArrayList<>(vertices.keySet());
 		int count=0;
-		for (Vertex key : keys) {
-			count+=key.nbrs.size();
+		for (String key : keys) {
+			Vertex vtx=vertices.get(key);
+			count+=vtx.nbrs.size();
 		}
+		return count/2;
 	}
 	
 	
@@ -71,7 +73,7 @@ public class Graph {
 	
 	
 	//remove Edge
-	public void removeEdge(String vname1 ,String vname2,int cost) {
+	public void removeEdge(String vname1 ,String vname2) {
 		Vertex vtx1=vertices.get(vname1);
 		Vertex vtx2=vertices.get(vname2);
 		
