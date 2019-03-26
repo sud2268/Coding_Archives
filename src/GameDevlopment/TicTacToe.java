@@ -13,31 +13,32 @@ public class TicTacToe extends JFrame implements ActionListener {
 
 	public static int BOARD_SIZE=3;
 
+	//enum to store the status of the game 
 	public static enum GameStatus{
 		Incomplete ,Xwins,Zwins,Tie
 	}
 
 	private JButton[][] buttons=new JButton[BOARD_SIZE][BOARD_SIZE];
-	boolean crossturn =true;
+	boolean crossturn =true;// to store whose turn it is
 
 
 	public TicTacToe() {
-		super.setTitle("TicTacToe");
+		super.setTitle("TicTacToe");// title of Application
 		super.setSize(800, 800);
 		GridLayout grid=new GridLayout(BOARD_SIZE, BOARD_SIZE);
 		super.setLayout(grid);
-		Font font=new Font("Comic sans ", 1, 150);
+		Font font=new Font("Comic sans ", 1, 150);//Font of the components
 		for (int row = 0; row < buttons.length; row++) {
 			for (int col = 0; col < buttons.length; col++) {
-				JButton button=new JButton("");
+				JButton button=new JButton("");//object of button class
 				buttons	[row][col]=button;
 				button.setFont(font);
-				button.addActionListener(this);
+				button.addActionListener(this);//
 				super.add(button);
 			}
 
 		}
-		super.setResizable(false);
+		super.setResizable(false);//to stop window from resizing
 		super.setVisible(true);
 	}
 
@@ -45,7 +46,7 @@ public class TicTacToe extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		JButton clickedButton = (JButton)e.getSource();
+		JButton clickedButton = (JButton)e.getSource();//to get the source of button
 		makeMove(clickedButton);
 		GameStatus gs=this.getGameStatus();
 		if(gs==GameStatus.Incomplete) {
