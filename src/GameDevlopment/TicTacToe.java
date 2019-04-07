@@ -39,7 +39,7 @@ public class TicTacToe extends JFrame implements ActionListener {
 
 		}
 		super.setResizable(false);//to stop window from resizing
-		super.setVisible(true);
+		super.setVisible(true); 
 	}
 
 
@@ -47,8 +47,8 @@ public class TicTacToe extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton clickedButton = (JButton)e.getSource();//to get the source of button
-		makeMove(clickedButton);
-		GameStatus gs=this.getGameStatus();
+		makeMove(clickedButton);//Function to make a move
+		GameStatus gs=this.getGameStatus();//Get Game status of current object
 		if(gs==GameStatus.Incomplete) {
 			return;
 		}

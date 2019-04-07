@@ -235,4 +235,17 @@ public class LinkedListGc {
 	public void reverseDataIter()throws Exception{
 		
 	}
+	
+	public Node midNode() {
+		Node fast=head;
+		Node slow=head;
+		
+		while(fast.next!=null && fast.next.next!=null) {
+			//condition1 for odd  no. of nodes and condition 2 for even number of nodes
+			//if any of the condition violates the loop terminates
+			fast=fast.next.next;
+			slow=slow.next;
+		}
+		return slow;
+	}
 }
